@@ -1,16 +1,64 @@
-# React + Vite
+# 📊 EcoMetrics Dashboard: Painel de Análise de Dados Responsável e Interativo
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![Badge de Status do Projeto - Ex: Em Desenvolvimento/Concluído](https://img.shields.io/badge/Status-Em%20Desenvolvimento-yellow)
+![Badge de Licença](https://img.shields.io/badge/License-MIT-blue.svg)
 
-Currently, two official plugins are available:
+## 🌟 Visão Geral
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+O **EcoMetrics Dashboard** é um projeto de simulação de um painel de análise de dados moderno e de alta performance. Desenvolvido com **React**, o objetivo principal é demonstrar proficiência em **visualização de dados**, **interatividade avançada**, **layout adaptável (Responsividade)** e **Arquitetura de Componentes** para ambientes corporativos.
 
-## React Compiler
+O projeto é ideal para destacar habilidades em criar soluções de **Data Visualization** robustas, um pilar crucial em qualquer ambiente de *business intelligence* (BI).
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## ✨ Principais Destaques e Funcionalidades
 
-## Expanding the ESLint configuration
+| Categoria | Funcionalidade | Destaque no Currículo |
+| :--- | :--- | :--- |
+| **Visualização de Dados** | Implementação de gráficos avançados com a biblioteca **Recharts** (ou similar) para métricas simuladas (vendas, tráfego, performance). | Habilidade em selecionar e implementar bibliotecas de gráficos líderes de mercado. |
+| **Interatividade** | Filtros dinâmicos (data, tipo de métrica), Tooltips interativos e **Simulação de Atualização em Tempo Real** (`Mocks` e `setInterval`). | Experiência em User Experience (UX) e manipulação de estado complexo (Hooks). |
+| **Arquitetura & Layout** | Layout de grade (**Grid/Flexbox Avançado**) que simula a reorganização (draggable) e redimensionamento de widgets. | Proficiência em CSS moderno e construção de layouts dinâmicos e adaptáveis. |
+| **Acessibilidade/UX** | Alternância de temas entre **Light e Dark Mode** profissional. | Foco em design centrado no usuário e acessibilidade. |
+| **Segurança (Simulada)** | Simulação de **Autenticação e Permissões** que alteram os dados e componentes visíveis com base no perfil de usuário. | Compreensão de fluxo de dados em aplicações com restrição de acesso. |
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🚀 Tecnologias Utilizadas
+
+| Tecnologia | Finalidade |
+| :--- | :--- |
+| **React** | Biblioteca principal para a construção da interface. |
+| **Recharts** (Recomendado) | Biblioteca leve e flexível para renderização de gráficos em React. |
+| **Custom Hooks** | Utilização avançada de Hooks para gerenciar lógica de estado complexa (Ex: `useAuth`, `useDarkMode`, `useData`). |
+| **CSS Modules / Tailwind CSS** | Estilização profissional e modularizada. |
+| **Flexbox & CSS Grid** | Criação do layout adaptável e responsivo. |
+
+## ⚙️ Como Executar o Projeto Localmente
+
+Para clonar e executar este projeto na sua máquina:
+
+**Pré-requisitos:**
+* Node.js (versão LTS)
+* npm
+
+1.  **Clone o repositório:**
+    ```bash
+    git clone [https://github.com/SEU_USUARIO/eco-metrics-dashboard.git](https://github.com/SEU_USUARIO/eco-metrics-dashboard.git)
+    cd eco-metrics-dashboard
+    ```
+
+2.  **Instale as dependências:**
+    ```bash
+    npm install
+    ```
+
+3.  **Inicie o servidor de desenvolvimento:**
+    ```bash
+    npm run dev
+    ```
+
+O dashboard estará acessível em `http://localhost:5173/` (ou outra porta especificada pelo Vite).
+
+## 🤝 Contribuição (Opcional, mas profissional)
+
+Contribuições, sugestões e relatórios de bugs são bem-vindos! Sinta-se à vontade para abrir uma *Issue* ou enviar um *Pull Request*.
+
+## 🔑 Licença
+
+Este projeto está licenciado sob a Licença MIT.
