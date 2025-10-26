@@ -1,70 +1,130 @@
-# Getting Started with Create React App
+# 📊 Sustainable ESG Dashboard (React)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![Badge de Status](https://img.shields.io/badge/Status-Concluído-brightgreen)
+![Badge de Licença](https://img.shields.io/badge/Licença-MIT-blue)
+![Badge de Tecnologia](https://img.shields.io/badge/React-Hooks%20%7C%20Context%20API-61DAFB)
 
-## Available Scripts
+Este projeto é um **Dashboard de Análise de Dados Interativo e Responsivo** construído com React. O projeto demonstra a criação de uma interface analítica robusta, com foco na visualização de métricas de **Sustentabilidade Corporativa (ESG - Ambiental, Social e Governança)** e na aplicação de arquitetura moderna de front-end.
 
-In the project directory, you can run:
+Foi desenvolvido como um projeto principal de portfólio para evidenciar habilidades avançadas em componentização, gerenciamento de estado e design responsivo (CSS Grid).
 
-### `npm start`
+## ✨ Principais Funcionalidades e Destaques Técnicos
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+| Funcionalidade | Implementação Técnica | Habilidades Demonstradas |
+| :--- | :--- | :--- |
+| **Simulação de Permissões (RBAC)** | **React Context API** (`useAuth`) e Renderização Condicional. | Lógica de Negócios e Controle de Acesso no Front-end. |
+| **Atualização em Tempo Real** | **Hook Personalizado** (`useRealTimeData`) com `setInterval`. | Simulação de Polling/Stream de API e Gerenciamento de Efeitos Colaterais. |
+| **Layout Adaptável** | **CSS Grid Avançado** (`grid-template-columns`) e **Media Queries**. | Proficiência em design responsivo puro, otimizando o layout para Mobile/Tablet. |
+| **Dark Mode Profissional** | **React Context API** (`useTheme`) e classes CSS dinâmicas. | Gerenciamento de Estado Global, Melhoria de UX/Acessibilidade. |
+| **Visualização de Dados** | Biblioteca **Recharts** (Gráficos de Linha e KPIs). | Integração e customização de bibliotecas de visualização de dados. |
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## 🛠️ Tecnologias e Dependências
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+* **Front-end Framework:** `ReactJS`
+* **Visualização:** `recharts`
+* **Estilização:** CSS3 Puro (Flexbox/Grid Avançado)
+* **Hooks Customizados:** `useAuth`, `useTheme`, `useRealTimeData`
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 🏗️ Estrutura do Código
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+A arquitetura segue o princípio de separação de responsabilidades (SoC):
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+sustainable-dashboard/ ├── src/ │ ├── components/ # Componentes Reutilizáveis (UI) │ │ ├── charts/ # -> Gráficos │ │ ├── DashboardCard.js # -> Wrapper de Layout │ │ └── KpiCard.js # -> Componente de KPI │ ├── data/ │ │ └── mockData.js # Simulação de Dados Iniciais │ ├── hooks/ # Lógica de Estado e APIs Customizadas │ │ ├── useAuth.js # -> Permissões │ │ ├── useRealTimeData.js # -> Dados em Tempo Real │ │ └── useTheme.js # -> Dark Mode │ ├── styles/ │ │ └── DashboardLayout.css # Definição do Grid Responsivo │ └── App.js # Orquestrador Principal
 
-### `npm run eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## 🚶 Passo a Passo Técnico
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Esta seção detalha as soluções arquiteturais implementadas para cada requisito do projeto.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### 1. Layout Grid Responsivo
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+O container principal utiliza o módulo CSS Grid para dispor os widgets. A responsividade é garantida por *Media Queries*, que ajustam o número de colunas:
 
-## Learn More
+| Tela | `grid-template-columns` | Resultado |
+| :--- | :--- | :--- |
+| Desktop (>1024px) | `repeat(3, 1fr)` | 3 Colunas |
+| Tablet (601px-1024px) | `repeat(2, 1fr)` | 2 Colunas |
+| Mobile (<600px) | `1fr` | 1 Coluna |
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### 2. Gerenciamento de Permissões (Context API)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+A lógica de Autenticação e Autorização (RBAC simples) é gerenciada via `AuthContext`. O hook `useAuth` fornece o nível de permissão (e.g., `canSeeEnvironmental`), que é usado para renderização condicional em `App.js`.
 
-### Code Splitting
+**Tabela de Permissões (Simulada):**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+| Perfil                | Acesso E (Ambiental) | Acesso G (Governança) |
+| **Admin**             | ✅                   | ✅                    |
+| **Leitor ESG**        | ✅                   | ❌                    |
+| **Leitor Governança** | ❌                   | ✅                    |
+| **Usuário Comum**     | ❌                   | ❌                    |
 
-### Analyzing the Bundle Size
+### 3. Simulação de Dados em Tempo Real (`useRealTimeData`)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Para simular o *streaming* de dados sem a necessidade de um back-end real, foi criado o `useRealTimeData`.
 
-### Making a Progressive Web App
+O hook utiliza:
+1.  `useState` para armazenar o estado atual dos dados.
+2.  `useEffect` para iniciar um `setInterval`.
+3.  A função `fluctuateData` para modificar aleatoriamente o último ponto de dados a cada **5 segundos**.
+4.  O **Cleanup Function** (`return () => clearInterval(intervalId)`) para evitar vazamento de memória.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+```javascript
+// src/hooks/useRealTimeData.js
+useEffect(() => {
+    const intervalId = setInterval(() => {
+        // ... (Lógica de atualização dos dados)
+    }, 5000); // Atualiza a cada 5 segundos
 
-### Advanced Configuration
+    return () => clearInterval(intervalId); // Cleanup vital!
+}, [updateInterval]);
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+4. Dark Mode (Context API)
+O tema escuro é habilitado globalmente, com persistência via localStorage. A aplicação usa a propriedade isDarkMode do hook useTheme para alternar classes CSS (dark-mode) no container principal e ajustar cores em componentes específicos (ex: linha do gráfico).
 
-### Deployment
+🖼️ Demonstração Visual do Dark Mode
+![alt text](public/print.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+⚙️ Como Rodar o Projeto Localmente
+Requisitos:
 
-### `npm run build` fails to minify
+Node.js (v14+)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+npm (ou yarn)
+
+Clone o repositório:
+
+Bash:
+
+git clone https://github.com/lrb7dev/MAIN_PROJECTS.git
+cd sustainable-dashboard
+Instale as dependências:
+
+Bash:
+
+npm install 
+# ou yarn install
+
+Inicie o servidor de desenvolvimento:
+
+Bash:
+
+npm start
+# ou yarn start
+
+O Dashboard será aberto automaticamente no seu navegador em http://localhost:3000.
+
+📝 Licença
+Este projeto está sob a licença MIT.
+
+👤 Autor
+
+Luan Rabelo
+
+GitHub: https://github.com/lrb7dev
+
+LinkedIn: https://www.linkedin.com/in/luan-rabelo-batista-a80734251/
