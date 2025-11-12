@@ -1,0 +1,161 @@
+/* Limpeza e Configurações Globais */
+:root {
+  --primary-color: #0070f3;
+  --secondary-color: #282c34;
+  --background-light: #f4f6f8;
+  --text-dark: #333;
+  --card-background: #ffffff;
+  --shadow-light: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --border-radius: 12px;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background-color: var(--background-light);
+  color: var(--text-dark);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Estrutura do Container Principal */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px 20px;
+  min-height: 100vh;
+}
+
+.title {
+  color: var(--primary-color);
+  margin-bottom: 40px;
+  font-size: 2.5rem;
+}
+
+/* Estilização do Formulário/Input */
+.search-form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 30px;
+  width: 100%;
+  max-width: 450px;
+}
+
+.search-input {
+  padding: 12px 15px;
+  flex-grow: 1;
+  border: 2px solid #ddd;
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+  transition: border-color 0.3s;
+}
+
+.search-input:focus {
+  border-color: var(--primary-color);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 112, 243, 0.2);
+}
+
+.search-button {
+  padding: 12px 20px;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.1s;
+}
+
+.search-button:hover {
+  background-color: #005bb5;
+}
+
+.search-button:active {
+  transform: scale(0.98);
+}
+
+/* Estilização do Card de Previsão do Tempo */
+.weather-card {
+  background: var(--card-background);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-light);
+  padding: 30px;
+  width: 100%;
+  max-width: 450px;
+  text-align: center;
+}
+
+.weather-card.loading, .weather-card.info-message {
+  padding: 20px;
+  font-style: italic;
+  color: #666;
+}
+
+.weather-card.error-message {
+  background-color: #fdd;
+  border: 1px solid #f00;
+  color: #c00;
+  font-weight: bold;
+}
+
+.city-name {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: var(--secondary-color);
+}
+
+.main-temp-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 15px 0;
+}
+
+.weather-icon {
+  width: 80px;
+  height: 80px;
+}
+
+.temperature {
+  font-size: 4rem;
+  font-weight: 300;
+  margin-left: 10px;
+}
+
+.description {
+  font-size: 1.2rem;
+  margin-bottom: 25px;
+  color: #555;
+}
+
+.details-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  text-align: left;
+  border-top: 1px solid #eee;
+  padding-top: 20px;
+}
+
+.detail-item p:first-child {
+  font-weight: 600;
+  color: var(--primary-color);
+  margin-bottom: 4px;
+}
+
+.detail-item p:last-child {
+  font-size: 1.1rem;
+}
