@@ -6,6 +6,7 @@ export const metadata = {
   description: "Gerencie suas leituras",
 };
 
+//Cria um menu simples usando Tailwind.
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="pt-br">
