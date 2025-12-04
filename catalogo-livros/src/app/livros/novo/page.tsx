@@ -1,6 +1,9 @@
 "use client"; 
 // Necessário porque este componente usa estados e eventos (client-side)
 
+import { adicionarLivro } from "@/app/utils/localStorageLivros";
+// Importa a função criada para salvar o livro
+
 import { useState } from "react";
 
 export default function NovoLivroPage() {
@@ -15,29 +18,36 @@ export default function NovoLivroPage() {
   const [citacoes, setCitacoes] = useState("");
   const [status, setStatus] = useState("lendo");
 
-  // -----------------------------------------------------
-  // Função chamada quando o formulário é enviado
-  // -----------------------------------------------------
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault(); // evita refresh automático da página
+const handleSubmit = (e: React.FormEvent) => {
+  e.preventDefault();
 
-    // Cria um objeto com todos os dados do formulário
-    const novoLivro = {
-      titulo,
-      autor,
-      genero,
-      progresso,
-      avaliacao,
-      citacoes,
-      status,
-    };
-
-    // Neste momento apenas será mostrado no console
-    // Em etapas futuras, será salvo no LocalStorage ou backend
-    console.log("Novo livro:", novoLivro);
-
-    alert("Livro cadastrado com sucesso (no console por enquanto)!");
+  const novoLivro = {
+    titulo,
+    autor,
+    genero,
+    progresso,
+    avaliacao,
+    citacoes,
+    status,
   };
+
+  // -------------------------------------------------------------
+  // Salva no LocalStorage
+  // -------------------------------------------------------------
+  adicionarLivro(novoLivro);
+
+  alert("📚 Livro salvo com sucesso!");
+
+  // Limpando os campos após salvar
+  setTitulo("");
+  setAutor("");
+  setGenero("");
+  setProgresso(0);
+  setAvaliacao(0);
+  setCitacoes("");
+  setStatus("lendo");
+};
+
 
   return (
     <div className="max-w-xl mx-auto bg-white p-6 shadow rounded">
